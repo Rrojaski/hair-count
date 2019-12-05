@@ -1,0 +1,19 @@
+.top-bar-container {
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.title-link, .title-link:hover, .title-link:focus  {
+  cursor: pointer;
+  background-color: unset;
+  color: unset !important;
+  text-decoration: none;
+}
+li > a:hover{
+    background-color: unset;
+    color: unset;
+}
+
+li > a:focus {
+  background-color: #3b8ad9;
+}

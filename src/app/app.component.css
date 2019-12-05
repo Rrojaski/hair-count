@@ -1,0 +1,13 @@
+p {
+  font-family: Lato;
+}
+
+.app {
+  min-height: 80vh;
+}
+
+.app::after {
+  content: "";
+  clear: both;
+  display: table;
+}
