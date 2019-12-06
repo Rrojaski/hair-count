@@ -1,37 +1,36 @@
-<Header class=" bg-primary top-bar-container">
-  <div class="container ">
-    <nav
-      class="navbar navbar-expand-lg navbar-dark navbar-light d-flex  flex-row align-items-center justify-content-between"
+<Header class="top-bar-container bg-primary fixed-top">
+  <nav
+    class="container d-flex flex-row align-items-center justify-content-between navbar navbar-expand-lg navbar-dark "
+  >
+    <h2 class="text-light">
+      <a class="title-link " [routerLink]="['/']">Hair Count</a>
+    </h2>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#headerNavbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
-      <h2 class="text-light">
-        <a class="title-link " [routerLink]="['/']">Hair Count</a>
-      </h2>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon "></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link text-light" [routerLink]="['blog']">BLOG</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" [routerLink]="['/sign-in']">LOGIN</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" [routerLink]="['/contact']"
-              >CONTACT</a
-            >
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </div>
+      <span class="navbar-toggler-icon "></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-end"
+      id="headerNavbarNav"
+    >
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-light" [routerLink]="['blog']">BLOG</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" [routerLink]="['/sign-in']">LOGIN</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" [routerLink]="['/contact']">CONTACT</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </Header>

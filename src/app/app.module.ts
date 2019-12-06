@@ -34,7 +34,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { DiagramComponent } from "./diagram/diagram.component";
 import { ProductDetailsComponent } from "./product-details/product-details.component";
 import { AddProductComponent } from "./add-product/add-product.component";
-import { CartService } from "./cart.service";
+import { CartService } from "./core//services/cart.service";
 
 @NgModule({
   imports: [

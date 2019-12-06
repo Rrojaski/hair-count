@@ -1,14 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { products } from "../products";
-import { CartService } from "../cart.service";
-
-interface Basket {
-  count: number;
-  name: string;
-  description: string;
-  image: string;
-  price: number;
-}
+import { CartService } from "../core/services/cart.service";
+import { Cart } from "../core/models/interfaces";
 
 @Component({
   selector: "app-add-product",
@@ -20,23 +13,29 @@ export class AddProductComponent implements OnInit {
   products: object[] = products;
 
   // The basket is an array of items that were added by the user when they click the add button for that product
-  basket: Basket[];
+  cart: Cart[];
   total: number;
   constructor(private cartService: CartService) {}
 
   addToCart(item) {
     this.cartService.addToCart(item);
-    this.basket = this.cartService.getItems();
-    this.total = this.basket.reduce((total, item) => total + item.price, 0);
+    this.cart = this.cartService.getCart;
+    this.total = this.cartService.getTotal;
   }
 
   removeFromCart(index) {
     this.cartService.removeFromCart(index);
-    this.basket = this.cartService.getItems();
-    this.total = this.basket.reduce((total, item) => total + item.price, 0);
+    this.cart = this.cartService.getCart;
+    this.total = this.cartService.getTotal;
+  }
+
+  createOrder() {
+    this.cartService.createOrder();
+    this.cart = this.cartService.getCart;
+    this.total = this.cartService.getTotal;
   }
 
   ngOnInit() {
-    this.basket = this.cartService.getItems();
+    this.cart = this.cartService.getCart;
   }
 }
