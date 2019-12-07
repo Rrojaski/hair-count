@@ -1,0 +1,22 @@
+@media only screen and (max-width: 767px) {
+  .card-container {
+    height: 400px;
+    overflow-y: scroll;
+  }
+  .cart-container {
+    overflow-y: scroll;
+  }
+}
+.card-container {
+  margin-bottom: 5rem;
+}
+
+.cart-container {
+  max-height: 400px;
+  overflow-y: unset;
+}
+
+.card-image {
+  object-fit: cover;
+  height: calc(18rem / 2);
+}

@@ -1,34 +1,26 @@
-<div class="d-flex justify-content-between flex-wrap">
-  <div
-    *ngFor="let product of products"
-    class="card mb-5"
-    style="width: 20rem; height: 20rem"
-  >
-    <img
-      style="object-fit: contain; margin-top: 5%"
-      height="45%"
-      src="{{ product.image }}"
-      [title]="product.name"
-      class="card-img-top"
-      alt="{{ product.name }}"
-    />
-    <div class="card-body">
-      <div class="mb-3">
-        <h5 class="card-title">{{ product.name }}</h5>
-        <p class="card-text">{{ product.description | slice: 0:60 }}...</p>
+<div class="container-fluid padding">
+  <div class="card-container row padding">
+    <div *ngFor="let product of products" class="col-md-4 mb-4">
+      <div class="card">
+        <img
+          src="{{ product.image }}"
+          [title]="product.name"
+          class="card-img-top card-image"
+          alt="{{ product.name }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name | slice: 0:10 }}</h5>
+          <p class="card-text">{{ product.description | slice: 0:45 }} . . .</p>
+          <a (click)="addToCart(product)" class="btn btn-primary text-light"
+            >Add To Cart</a
+          >
+        </div>
       </div>
-      <a
-        style="float: left"
-        (click)="addToCart(product)"
-        class="card-link text-primary"
-        >Add</a
-      >
-      <p style="float: right">{{ product.price | currency }}</p>
     </div>
   </div>
 </div>
 <div>
-  <div>
+  <div class="cart-container">
     <table class="table table-striped">
       <thead>
         <tr>

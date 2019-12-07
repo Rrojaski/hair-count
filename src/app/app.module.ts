@@ -35,6 +35,7 @@ import { DiagramComponent } from "./diagram/diagram.component";
 import { ProductDetailsComponent } from "./product-details/product-details.component";
 import { AddProductComponent } from "./add-product/add-product.component";
 import { CartService } from "./core//services/cart.service";
+import { OrdersComponent } from "./orders/orders.component";
 
 @NgModule({
   imports: [
@@ -58,6 +59,7 @@ import { CartService } from "./core//services/cart.service";
         children: [
           { path: "", component: DiagramComponent },
           { path: "add-product", component: AddProductComponent },
+          { path: "orders", component: OrdersComponent },
           { path: "product/:productId", component: ProductDetailsComponent }
         ]
       }
@@ -80,7 +82,8 @@ import { CartService } from "./core//services/cart.service";
     DashboardComponent,
     DiagramComponent,
     ProductDetailsComponent,
-    AddProductComponent
+    AddProductComponent,
+    OrdersComponent
   ],
   bootstrap: [AppComponent],
   providers: [PostsJsonService, CartService, AngularFirestore]
