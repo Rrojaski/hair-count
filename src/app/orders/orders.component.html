@@ -1,6 +1,7 @@
 <div class="orders-container container">
+  <h1 class="display-4 mb-5">Recent Orders</h1>
   <div id="orderCards">
-    <div *ngFor="let order of orders; let orderId = index" class="card">
+    <div *ngFor="let order of orders; let orderId = index" class="card mb-2">
       <div class="card-header" id="headingOne">
         <h2 class="mb-0">
           <button
@@ -8,7 +9,7 @@
             class="row btn btn-link"
             type="button"
             data-toggle="collapse"
-            data-target="fixme"
+            [attr.data-target]="'#orderCard' + orderId"
             aria-expanded="true"
             aria-controls="collapseOne"
           >
@@ -23,9 +24,9 @@
         </h2>
       </div>
       <table
-        id="collapseOne"
+        [id]="'orderCard' + orderId"
         aria-labelledby="headingOne"
-        data-parent="#fixme"
+        data-parent="#orderCards"
         class=" collapse table table-striped"
       >
         <thead>
