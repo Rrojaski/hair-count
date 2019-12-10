@@ -3,7 +3,6 @@ import { Observable } from "rxjs";
 import {
   AngularFirestore,
   AngularFirestoreCollection,
-  AngularFirestoreDocument
 } from "@angular/fire/firestore";
 
 import { Cart } from "../models/interfaces";
