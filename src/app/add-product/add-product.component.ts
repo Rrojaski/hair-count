@@ -6,13 +6,10 @@ import { Cart } from "../core/models/interfaces";
 @Component({
   selector: "app-add-product",
   templateUrl: "./add-product.component.html",
-  styleUrls: ["./add-product.component.css"]
+  styleUrls: ["./add-product.component.scss"]
 })
 export class AddProductComponent implements OnInit {
-  // Array of products to be displayed on screen for the user to add to the basket
   products: object[] = products;
-
-  // The basket is an array of items that were added by the user when they click the add button for that product
   cart: Cart[];
   total: number;
   constructor(private cartService: CartService) {}

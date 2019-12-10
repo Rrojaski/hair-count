@@ -1,34 +1,29 @@
-<div class="d-flex justify-content-between flex-wrap">
+<div class="container-fluid padding">
+  <h1 class="display-4 mb-5">Create Order</h1>
   <div
-    *ngFor="let product of products"
-    class="card mb-5"
-    style="width: 20rem; height: 20rem"
+    class="card-container row row-cols flex-nowrap flex-sm-wrap row-cols-sm-2 row-cols-md-3"
   >
-    <img
-      style="object-fit: contain; margin-top: 5%"
-      height="45%"
-      src="{{ product.image }}"
-      [title]="product.name"
-      class="card-img-top"
-      alt="{{ product.name }}"
-    />
-    <div class="card-body">
-      <div class="mb-3">
-        <h5 class="card-title">{{ product.name }}</h5>
-        <p class="card-text">{{ product.description | slice: 0:60 }}...</p>
+    <div *ngFor="let product of products" class="col mb-4">
+      <div class="card">
+        <img
+          src="{{ product.image }}"
+          [title]="product.name"
+          class="card-img-top card-image"
+          alt="{{ product.name }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name | slice: 0:10 }}</h5>
+          <p class="card-text">{{ product.description | slice: 0:45 }} . . .</p>
+          <a (click)="addToCart(product)" class="btn btn-primary text-light"
+            >Add To Cart</a
+          >
+        </div>
       </div>
-      <a
-        style="float: left"
-        (click)="addToCart(product)"
-        class="card-link text-primary"
-        >Add</a
-      >
-      <p style="float: right">{{ product.price | currency }}</p>
     </div>
   </div>
 </div>
 <div>
-  <div>
+  <div class="cart-container">
     <table class="table table-striped">
       <thead>
         <tr>
@@ -40,9 +35,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of cart; index as itemId">
+        <tr class="item-container" *ngFor="let item of cart; index as itemId">
           <th scope="row">
-            <button (click)="removeFromCart(itemId)">X</button>
+            <i class="fas fa-times" (click)="removeFromCart(itemId)"></i>
           </th>
           <th scope="row">{{ item.count }}</th>
           <td>{{ item.name }}</td>
@@ -60,6 +55,6 @@
     </table>
   </div>
   <button style="float: right" class="btn btn-primary" (click)="createOrder()">
-    CHECK OUT
+    COMPLETE ORDER
   </button>
 </div>

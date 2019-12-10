@@ -1,0 +1,38 @@
+@media only screen and (max-width: 767px) {
+  .card-container {
+    max-height: 600px;
+    width: 100%;
+    overflow-x: scroll;
+  }
+  .cart-container {
+    overflow-y: scroll;
+  }
+  .card {
+    width: 18rem;
+  }
+}
+.card-container {
+  margin-bottom: 5rem;
+}
+
+.cart-container {
+  max-height: 400px;
+  overflow-y: unset;
+  tbody tr:nth-of-type(odd) {
+    background-color: lighten(#007bff, 20%);
+  }
+  .item-container {
+    white-space: nowrap;
+    .fa-times {
+      cursor: pointer;
+      &:hover {
+        color: #ff0000;
+      }
+    }
+  }
+}
+
+.card-image {
+  object-fit: cover;
+  height: calc(18rem / 2);
+}

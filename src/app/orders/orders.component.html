@@ -1,0 +1,51 @@
+<div class="orders-container container">
+  <h1 class="display-4 mb-5">Recent Orders</h1>
+  <div id="orderCards">
+    <div *ngFor="let order of orders; let orderId = index" class="card mb-2">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button
+            style="width: 100%"
+            class="row btn btn-link"
+            type="button"
+            data-toggle="collapse"
+            [attr.data-target]="'#orderCard' + orderId"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            <div class="row">
+              <div class="col">
+                Created: order.created
+              </div>
+              <div class="col">Count: {{ order.items.length }}</div>
+              <div class="col">Total: {{ order.total | currency }}</div>
+            </div>
+          </button>
+        </h2>
+      </div>
+      <table
+        [id]="'orderCard' + orderId"
+        aria-labelledby="headingOne"
+        data-parent="#orderCards"
+        class=" collapse table table-striped"
+      >
+        <thead>
+          <tr>
+            <th scope="col">Count</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of order.items">
+            <th scope="row">{{ item.count }}</th>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description | slice: 0:20 }}</td>
+            <td>{{ item.price | currency }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

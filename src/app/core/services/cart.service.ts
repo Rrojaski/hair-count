@@ -3,8 +3,8 @@ import { Observable } from "rxjs";
 import {
   AngularFirestore,
   AngularFirestoreCollection,
-  AngularFirestoreDocument
 } from "@angular/fire/firestore";
+
 import { Cart } from "../models/interfaces";
 
 @Injectable()
@@ -55,6 +55,7 @@ export class CartService {
   }
 
   createOrder() {
+    this.db.collection("orders").add({ items: this.cart, total: this.total });
     this.clearCart();
   }
 }
